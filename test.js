@@ -1,12 +1,13 @@
-var a = document.getElementById("searchi");
-const button = document.querySelector(".btn");
-const form=document.querySelector("#addform");
-button.addEventListener("click",showimage());   
-function showimage(e) {
-    // e.preventDefault();
-    let aa = a.value;
-    console.log(aa);
-    fetch('https://api.tvmaze.com/search/shows?q=Kung Fu Panda').then(response => {
+
+
+var search = document.getElementById('searchi');
+var form = document.getElementById('addform');
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  show();
+});
+function show() {
+    fetch(`https://api.tvmaze.com/search/shows?q=${search.value}`).then(response => {
         return response.json();
     }).then(data => {
         let html = "";
