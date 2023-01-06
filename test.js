@@ -1,21 +1,20 @@
 
 
-var search = document.getElementById('searchi');
-var form = document.getElementById('addform');
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  show();
-});
+
+// document.querySelector(".btn").addEventListener("click",(e)=>show(e));
+//   show());
 function show() {
+    //   e.preventDefault();
+      let search=document.getElementById("searchi");
     fetch(`https://api.tvmaze.com/search/shows?q=${search.value}`).then(response => {
         return response.json();
     }).then(data => {
         let html = "";
-        console.log(data);
+        // console.log(data);
         data.forEach(d => {
             // console.log(d.name);
             let url=d.show.image.original;
-            console.log(url);
+            // console.log(url);
             let h = `<img src=${url}>`;
             html += h;
         });
@@ -41,23 +40,27 @@ black.addEventListener('click', () => changeTheme('black'));
 function changeTheme(color) {
     document.body.style.backgroundColor = color;
     // document.querySelector(".color").display=none;
-    if (color = "gray") {
+    if (color == "gray") {
+        document.querySelector(".container").style.border="2px solid black";
         document.querySelector(".color1").style.backgroundColor = color;
     }
-    if (color = "green") {
+    if (color == "green") {
+        document.querySelector(".container").style.border="2px solid black";
         document.querySelector(".color2").style.backgroundColor = color;
     }
-    if (color = "pink") {
+    if (color == "pink") {
         // document.querySelector(".color").display="block";
+        document.querySelector(".container").style.border="2px solid black";
         document.querySelector(".color3").style.backgroundColor = color;
     }
-    if (color = "blue") {
+    if (color == "blue") {
         // document.querySelector(".color").display="block";
+        document.querySelector(".container").style.border="2px solid black";
         document.querySelector(".color4").style.backgroundColor = color;
     }
-    if (color = "black") {
+    if (color == "black") {
         // document.querySelector(".color").display="block";
-
+   document.querySelector(".container").style.border="2px solid white";
         document.querySelector(".color5").style.backgroundColor = color;
         // document.getElementById("text").style.color=white;
     }
